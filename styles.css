@@ -1,0 +1,166 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+/* CARTA */
+.card {
+    background: rgba(255,255,255,0.15);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    width: 350px;
+    animation: fadeIn 1.5s;
+}
+
+.card h1 {
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* CORAZÓN */
+.heart {
+    width: 70px;
+    height: 70px;
+    background: red;
+    position: relative;
+    margin: 25px auto;
+    transform: rotate(-45deg);
+    cursor: pointer;
+    animation: pulse 1.2s infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    width: 70px;
+    height: 70px;
+    background: red;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before {
+    top: -35px;
+    left: 0;
+}
+
+.heart::after {
+    left: 35px;
+    top: 0;
+}
+
+.click-text {
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+/* GALERÍA */
+.hidden {
+    display: none;
+}
+
+#galeria {
+    text-align: center;
+}
+
+.heart-gallery {
+    display: grid;
+    grid-template-columns: repeat(7, 60px);
+    grid-auto-rows: 60px;
+    gap: 8px;
+    justify-content: center;
+    margin: 40px auto;
+}
+
+.heart-gallery img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.3);
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all .6s ease;
+}
+
+/* Animación visible */
+.heart-gallery img.show {
+    opacity: 1;
+    transform: scale(1.5) rotate(var(--rot, 0deg));
+}
+
+
+
+/* FILA 1 (curvas superiores) */
+.heart-gallery img:nth-child(1) { grid-column: 2; }
+.heart-gallery img:nth-child(2) { grid-column: 3; }
+.heart-gallery img:nth-child(3) { grid-column: 5; }
+.heart-gallery img:nth-child(4) { grid-column: 6; }
+
+/* FILA 2 */
+.heart-gallery img:nth-child(5)  { grid-column: 1; }
+.heart-gallery img:nth-child(6)  { grid-column: 2; }
+.heart-gallery img:nth-child(7)  { grid-column: 3; }
+.heart-gallery img:nth-child(8)  { grid-column: 4; }
+.heart-gallery img:nth-child(9)  { grid-column: 5; }
+.heart-gallery img:nth-child(10) { grid-column: 6; }
+.heart-gallery img:nth-child(11) { grid-column: 7; }
+
+/* FILA 3 */
+.heart-gallery img:nth-child(12) { grid-column: 2; }
+.heart-gallery img:nth-child(13) { grid-column: 3; }
+.heart-gallery img:nth-child(14) { grid-column: 4; }
+.heart-gallery img:nth-child(15) { grid-column: 5; }
+.heart-gallery img:nth-child(16) { grid-column: 6; }
+
+/* FILA 4 */
+.heart-gallery img:nth-child(17) { grid-column: 3; }
+.heart-gallery img:nth-child(18) { grid-column: 4; }
+.heart-gallery img:nth-child(19) { grid-column: 5; }
+
+/* FILA 5 – punta del corazón */
+.heart-gallery img:nth-child(20) { grid-column: 3; margin-left: 30px; }
+.heart-gallery img:nth-child(21) { grid-column: 4; margin-top: 70px;}
+.heart-gallery img:nth-child(22) { grid-column: 6; margin-left: -100px;}
+
+.letra {
+    color:hsl(0, 74%, 30%);
+    font-weight: 600;
+
+    }
+/* ANIMACIONES */
+@keyframes pulse {
+    0% { transform: rotate(-45deg) scale(1); }
+    50% { transform: rotate(-45deg) scale(1.1); }
+    100% { transform: rotate(-45deg) scale(1); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+}
+
